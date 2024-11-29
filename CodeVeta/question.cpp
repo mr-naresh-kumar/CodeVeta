@@ -4,23 +4,23 @@ using namespace std;
 // Directions for moving in the grid (right, down, left, up)
 int dir[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
-// Check if the cell (x, y) is within bounds and not blocked
+
 bool isValid(int x, int y, int n, const vector<vector<char>>& grid) {
     return x >= 0 && x < n && y >= 0 && y < n && grid[x][y] != 'M';
 }
 
 // Function to find the minimum weighted path from 'S' to 'E'
 int fMW(int n, const vector<vector<char>>& grid, pair<int, int> start, pair<int, int> end) {
-    // Initialize the distance matrix with INT_MAX
+    
     vector<vector<int>> dist(n, vector<int>(n, INT_MAX));
     queue<pair<int, int>> q;
 
-    // Start from the source
+    
     q.push(start);
     dist[start.first][start.second] = 0;
 
     while (!q.empty()) {
-        // Extract the front of the queue
+       
         pair<int, int> current = q.front();
         q.pop();
 
@@ -56,7 +56,7 @@ int main() {
     vector<vector<char>> grid(n, vector<char>(n));
     pair<int, int> start, end;
 
-    // Input the grid and identify the start and end positions
+   
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             cin >> grid[i][j];
